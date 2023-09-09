@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "hwexpressions.h"
+//Comment to make all code show up in update
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);

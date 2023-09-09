@@ -18,7 +18,7 @@ int main()
 	cout<<"\nPlease enter the meal amount: ";
 	cin>>meal_amount;
 
-	cout<<"\nPlease enter tip amount: ";
+	cout<<"\nPlease enter tip rate (in decimal form): ";
 	cin>>tip_rate;
 
 	//Find tax amount and tip amount
@@ -28,11 +28,24 @@ int main()
 	//Get total
 	total = meal_amount + tax_amount + tip_amount;
 
-	//Print receipt
-	cout<<"\n\nMeal amount: "<<meal_amount
-		<<"\nSales Tax: "<<tax_amount
-		<<"\nTip amount: "<<tip_amount
-		<<"\nTotal: "<<total<<"\n";
+	//Formats all amounts to two decimal places
+	meal_amount = (int)(meal_amount * 100);
+	meal_amount = meal_amount / 100;
+
+	tax_amount = (int)(tax_amount * 100);
+	tax_amount = tax_amount / 100;
+
+	tip_amount = (int)(tip_amount * 100);
+	tip_amount = tip_amount / 100;
+
+	total = (int)(total * 100);
+	total = total / 100;
+
+	//Print out reciept
+	cout<<"\n\nMeal amount: $"<<meal_amount
+		<<"\nSales Tax: $"<<tax_amount
+		<<"\nTip amount: $"<<tip_amount
+		<<"\nTotal: $"<<total<<"\n";
 
 	return 0;
 }

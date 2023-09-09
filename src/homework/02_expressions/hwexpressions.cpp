@@ -1,5 +1,5 @@
 #include "hwexpressions.h"
-
+//Comment to make all code show up in update
 const double tax_rate = .0675;
 //example
 int add_numbers(int num1, int num2)
