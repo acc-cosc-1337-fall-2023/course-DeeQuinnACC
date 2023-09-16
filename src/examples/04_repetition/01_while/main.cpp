@@ -2,6 +2,6 @@
 
 int main() 
 {
-
+	display("Hello world!");
 	return 0;
 }
