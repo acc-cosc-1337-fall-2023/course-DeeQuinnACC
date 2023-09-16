@@ -51,9 +51,6 @@ char get_letter_grade_using_switch(int grade)
         case 90 ... 100:
             letterGrade = 'A';
             break;
-        default:
-            letterGrade = 'A';
-            break;
     }
     return letterGrade;
 }

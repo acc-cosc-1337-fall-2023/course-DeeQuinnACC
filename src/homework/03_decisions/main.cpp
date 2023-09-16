@@ -21,6 +21,7 @@ int main()
 	//Get choice
 	cout<<"\nPlease enter a number listed above: ";
 	cin>>choice;
+	
 	//Check that the user didn't exit the program
 	if(choice != 3)
 	{
