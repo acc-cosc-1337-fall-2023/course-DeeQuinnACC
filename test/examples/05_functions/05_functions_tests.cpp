@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "val_ref.h"
 #include "static.h"
+#include "default.h"
 
 TEST_CASE("Verify Test Configuration", "verification") 
 {
@@ -23,12 +24,8 @@ TEST_CASE("Test non_static_var", "Value of num doesn't persist")
 	REQUIRE(non_static_var() == 6);
 }
 
-TEST_CASE("Test static_var", "Value should persist")
+TEST_CASE("Test get_total")
 {
-	REQUIRE(static_var() == 6);
-	REQUIRE(static_var() == 7);
-	REQUIRE(static_var() == 8);
-
-	static_var();
-	REQUIRE(static_var() == 10);
+	REQUIRE(get_total(50) == get_total(50, 1));
+	REQUIRE(get_total(50, 2) == 100);
 }
