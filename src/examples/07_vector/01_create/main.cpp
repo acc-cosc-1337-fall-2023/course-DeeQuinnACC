@@ -12,29 +12,24 @@ void numFunc(vector<int> nums)
     {
         cout<<num<<"\n";
     }
+    cout<<"\n";
 }
 
 int main()
 {
     vector<int> nums{7, 4, 20};
+    vector<int> nums1;
+    vector<int> nums2(5, 10);//Fills the vector with five "10"s
 
-    cout<<"Capacity: "<<nums.capacity()<<"\n";
-    cout<<"Size:"<<nums.size()<<"\n";
-    for(int i = 0; i < nums.size(); i++)
+
+    for(int num2 : nums2)
     {
-        cout<<nums[i]<<"\n";
+        cout<<num2<<"\n";
     }
 
-    cout<<"\n";
+    vector<int> nums3 = nums;
 
-    nums.push_back(3); //Add to the end of the list
-
-    numFunc(nums);
-
-    nums.push_back(5);
-    nums.push_back(10);
-
-    numFunc(nums);
+    vector<double> doub = {5.5, 3.9, 8.9998};
 
     return 0;
 }
