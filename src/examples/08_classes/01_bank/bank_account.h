@@ -1,13 +1,14 @@
-//bank_account.h
+// bank_account.h
 class BankAccount
 {
-    public:
-        BankAccount(int b) : balance(b) //constructor
-        {
+public:
+    BankAccount(){}
+    BankAccount(int b) : balance(b){}
+    
+    int get_balance() const { return balance; }
+    void deposit(int amount);
+    void withdraw(int amount);
 
-        } 
-        int get_balance(){ return balance; }
-
-    private:
-        int balance{0}; //{0} initializes the value
+private:
+    int balance{0}; //{0} initializes the value
 };
