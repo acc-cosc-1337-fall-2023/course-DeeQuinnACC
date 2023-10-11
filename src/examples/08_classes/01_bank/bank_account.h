@@ -2,6 +2,11 @@
 #include<iostream>
 #include<stdlib.h> //for rand()
 
+//class header guards
+//Protects code from grabbing two references of the same class
+#ifndef BANK_ACCOUNT_H
+#define BANK_ACCOUNT_H
+
 class BankAccount
 {
 //This function is not a part of BankAccount, but can access private data
@@ -20,3 +25,5 @@ private:
 
     void get_balance_from_db();
 };
+
+#endif
