@@ -1,6 +1,7 @@
 //bank_account.cpp
 #include "bank_account.h"
 
+
 void BankAccount::deposit(int amount) //:: = scope. modifiying the function deposit inside of BankAccount
 {
     if(amount > 0)
@@ -15,4 +16,9 @@ void BankAccount::withdraw(int amount)
     {
         balance -= amount;
     }
+}
+
+void BankAccount::get_balance_from_db()
+{
+    balance = rand() % 10000 + 1;
 }
