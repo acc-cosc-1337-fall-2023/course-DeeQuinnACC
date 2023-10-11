@@ -1,8 +1,12 @@
 // bank_account.h
+#include<iostream>
 #include<stdlib.h> //for rand()
 
 class BankAccount
 {
+//This function is not a part of BankAccount, but can access private data
+friend void show_balance(const BankAccount& account);
+
 public:
     BankAccount() { get_balance_from_db(); }
     BankAccount(int b) : balance(b){}
