@@ -13,7 +13,8 @@ int main()
 
 	ATM atm(account);
 
+	run_menu(atm);
+
 	atm.display_balance();
-	cout<<"\n";
 	return 0;
 }
