@@ -9,7 +9,7 @@ using std::vector;
 class TicTacToe
 {
 public:
-    bool game_over(){ return check_board_full(); }
+    bool game_over();
 
     void start_game(string first_player);
 
@@ -19,13 +19,25 @@ public:
 
     void display_board() const;
 
+    string get_winner() { return winner; }
+
 private:
     string player;
-    vector<std::string> pegs{"","","","","","","","",""};
+    string winner = "C"; //C = tie
+
+    vector<std::string> pegs{9, " "};
 
     void set_next_player();
 
     bool check_board_full();
 
-    void clear_board(){ pegs = {"","","","","","","","",""}; }
+    void clear_board(){ pegs = {9, " "}; }
+
+    bool check_column_win();
+
+    bool check_row_win();
+
+    bool check_diagonal_win();
+
+    void set_winner();
 };
