@@ -21,6 +21,8 @@ int main()
 	cout<<"\nValue of num1: "<<num1;
 
 	int num2 = 20;
+
+	//Pointer can change to a different variable, unlike a reference
 	num_ptr = &num2;
 
 	cout<<"\nAddress of num2: "<<&num2;
