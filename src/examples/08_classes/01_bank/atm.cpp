@@ -40,7 +40,7 @@ void display_menu()
     cout<<"\n2 - Withdraw";
     cout<<"\n3 - Display Balance";
     cout<<"\n4 - Scan Card";
-    cout<<"\n4 - Exit";
+    cout<<"\n5 - Exit";
 }
 
 void run_menu(ATM& atm)
