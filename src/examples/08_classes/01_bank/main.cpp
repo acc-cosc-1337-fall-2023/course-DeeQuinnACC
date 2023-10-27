@@ -1,5 +1,7 @@
 #include <time.h> //help provide true randomness for rand()
 #include <iostream>
+#include <vector>
+#include <list>
 #include "atm.h"
 #include "bank_account.h"
 #include "checking_account.h"
@@ -7,22 +9,23 @@
 
 
 using std::cout;
+using std::vector;
+using std::list;
 
 int main()
 {
 	srand(time(NULL)); //Make rand() truly sudo-random
+	BankAccount* account = nullptr;
 
-	BankAccount* account;
+	CheckingAccount checkingAccount(500);
+	SavingsAccount savingsAccount(500);
 
-	SavingsAccount account2(500);
-	account = &account2;
-	cout<<account->get_balance()<<"\n";
+	vector<BankAccount*> accounts;
+	accounts.push_back(&checkingAccount);
+	accounts.push_back(&savingsAccount);
 
-	ATM atm(account);
-	run_menu(atm);
+	ATM atm(accounts);
 
-	cout<<"\nBalance: "<<account->get_balance()<<"\n";
-
-
+	return 0;
 	//cout<<"\n"<<account1.BankAccount::get_balance()<<" | "<<account1.get_balance()<<"\n";
 }

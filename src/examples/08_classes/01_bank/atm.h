@@ -1,23 +1,22 @@
 //atm.h
 #include "bank_account.h"
+#include <vector>
+#include <stdlib.h>
 
 class ATM
 {
 public:
-    ATM(BankAccount* a) : account(a){}
+    ATM(std::vector<BankAccount*> a) : accounts(a){}
 
     void display_balance();
-
     void make_deposit();
-
     void make_withdrawal();
-
-    BankAccount& get_account(){return *account;}
-
-    //void scan_card();
+    void scan_card();
 
 private:
-    BankAccount* account = nullptr;
+    std::vector<BankAccount*> accounts;
+    BankAccount* account;
+    int account_index;
 };
 
 void display_menu();

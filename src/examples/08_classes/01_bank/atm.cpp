@@ -27,6 +27,12 @@ void ATM::make_withdrawal()
     account->withdraw(amount);
 }
 
+void ATM::scan_card()
+{
+    account_index = rand() % accounts.size();
+    account = accounts[account_index];
+}
+
 //Free Functions
 void display_menu()
 {
@@ -50,6 +56,8 @@ void run_menu(ATM& atm)
     } while (option != 4);
     
 }
+
+
 
 void handle_menu_option(int option, ATM& atm)
 {
