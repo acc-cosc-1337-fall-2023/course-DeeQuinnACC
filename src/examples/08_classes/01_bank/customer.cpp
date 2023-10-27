@@ -3,6 +3,8 @@
 
 Customer::Customer()
 {
-    accounts.push_back(&CheckingAccount());
-    accounts.push_back(&SavingsAccount());
+    CheckingAccount checkingAccount;
+    SavingsAccount savingsAccount;
+    accounts.push_back(&checkingAccount);
+    accounts.push_back(&savingsAccount);
 }
