@@ -6,7 +6,7 @@
 class ATM
 {
 public:
-    ATM(std::vector<BankAccount*> a) : accounts(a){}
+    ATM(std::vector<BankAccount*> a) : accounts(a){ scan_card(); }
 
     void display_balance();
     void make_deposit();

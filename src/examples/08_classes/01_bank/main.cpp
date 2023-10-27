@@ -15,7 +15,7 @@ using std::list;
 int main()
 {
 	srand(time(NULL)); //Make rand() truly sudo-random
-	BankAccount* account = nullptr;
+	//BankAccount* account = nullptr;
 
 	CheckingAccount checkingAccount(500);
 	SavingsAccount savingsAccount(500);
