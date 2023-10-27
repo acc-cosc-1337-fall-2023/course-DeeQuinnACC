@@ -25,6 +25,7 @@ int main()
 	accounts.push_back(&savingsAccount);
 
 	ATM atm(accounts);
+	run_menu(atm);
 
 	return 0;
 	//cout<<"\n"<<account1.BankAccount::get_balance()<<" | "<<account1.get_balance()<<"\n";

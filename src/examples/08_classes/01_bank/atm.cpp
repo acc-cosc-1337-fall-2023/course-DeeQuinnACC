@@ -39,6 +39,7 @@ void display_menu()
     cout<<"\n1 - Deposit";
     cout<<"\n2 - Withdraw";
     cout<<"\n3 - Display Balance";
+    cout<<"\n4 - Scan Card";
     cout<<"\n4 - Exit";
 }
 
@@ -53,8 +54,7 @@ void run_menu(ATM& atm)
         cout<<"\nEnter menu option: ";
         cin>>option;
         handle_menu_option(option, atm);
-    } while (option != 4);
-    
+    } while (option != 5);
 }
 
 
@@ -73,6 +73,9 @@ void handle_menu_option(int option, ATM& atm)
             atm.display_balance();
             break;
         case 4:
+            atm.scan_card();
+            break;
+        case 5:
             cout<<"\nExiting...";
             break;
         default:
