@@ -13,6 +13,7 @@ iterate with auto
 
 int main() 
 {
-
+	Circle c;
+	c.draw();
 	return 0;
 }

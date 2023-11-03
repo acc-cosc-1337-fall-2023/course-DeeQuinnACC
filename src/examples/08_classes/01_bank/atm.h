@@ -9,7 +9,6 @@ class ATM
 {
 public:
     //ATM(std::vector<Customer*> c) : customers(c){ scan_card(); }
-    ATM(std::vector<Customer*> c) : customers(c){ scan_card(); }
 
     void display_balance();
     void make_deposit();
