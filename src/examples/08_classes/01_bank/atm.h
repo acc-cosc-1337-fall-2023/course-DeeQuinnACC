@@ -1,12 +1,15 @@
 //atm.h
 #include "bank_account.h"
+#include "customer.h"
 #include <vector>
+#include <memory>
 #include <stdlib.h>
 
 class ATM
 {
 public:
-    ATM(std::vector<BankAccount*> a) : accounts(a){ scan_card(); }
+    //ATM(std::vector<Customer*> c) : customers(c){ scan_card(); }
+    ATM(std::vector<Customer*> c) : customers(c){ scan_card(); }
 
     void display_balance();
     void make_deposit();
@@ -14,8 +17,9 @@ public:
     void scan_card();
 
 private:
-    std::vector<BankAccount*> accounts;
-    BankAccount* account;
+    std::vector<Customer*> customers;
+    std::unique_ptr<BankAccount>& account;
+    int customer_index;
     int account_index;
 };
 
