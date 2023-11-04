@@ -6,6 +6,9 @@
 using std::string;
 using std::vector;
 
+#ifndef TICTACTOE_H
+#define TICTACTOE_H
+
 class TicTacToe
 {
 public:
@@ -17,9 +20,11 @@ public:
 
     string get_player() const{ return player; }
 
-    void display_board() const;
+    string get_winner() const{ return winner; }
 
-    string get_winner() { return winner; }
+    //Overload istream and ostream respectively
+    friend std::ostream & operator << (std::ostream& out, const TicTacToe& ttt);
+    friend std::istream & operator >> (std::istream& in, TicTacToe& ttt);
 
 private:
     string player;
@@ -41,3 +46,5 @@ private:
 
     void set_winner();
 };
+
+#endif TICTACTOE_H

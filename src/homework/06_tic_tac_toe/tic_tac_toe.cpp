@@ -1,8 +1,6 @@
 //cpp
 #include "tic_tac_toe.h"
 
-using std::cout;
-
 bool TicTacToe::game_over()
 {
     if(check_column_win())
@@ -44,39 +42,16 @@ void TicTacToe::start_game(string first_player)
 
 void TicTacToe::mark_board(int position)
 {
+    //Check that the game isn't already over. If so, refuse to place anything
+    //Since this is done before changing players, this doesn't change winner.
+    if(game_over())
+    {
+        return;
+    }
+    
     pegs[position - 1] = player;
     set_next_player();
-}
-
-void TicTacToe::display_board() const
-{
-    //cout<<"\n"<<pegs[0]<<"|"<<pegs[1]<<"|"<<pegs[2];
-    //cout<<"\n"<<pegs[3]<<"|"<<pegs[4]<<"|"<<pegs[5];
-    //cout<<"\n"<<pegs[6]<<"|"<<pegs[7]<<"|"<<pegs[8]<<"\n";
-    cout<<"\n";
-
-    for(int i=0; i<9; i++)
-    {
-        //If no one has placed a marker on a slot, fill it with the number the user needs to input
-        if(pegs[i] == " ")
-        {
-            cout<<(i + 1);
-        }
-        else
-        {
-            cout<<pegs[i];
-        }
-
-        //At 2, 5, and 8, do a new line. Otherwise, place a |
-        if((i + 1) % 3 == 0)
-        {
-            cout<<"\n";
-        }
-        else
-        {
-            cout<<"|";
-        }
-    }
+    game_over();
 }
 
 
@@ -168,4 +143,64 @@ void TicTacToe::set_winner()
     {
         winner = "X";
     }
+}
+
+std::ostream& operator << (std::ostream& out, const TicTacToe& ttt)
+{
+    out<<"\n";
+
+    for(int i=0; i<9; i++)
+    {
+        //If no one has placed a marker on a slot, fill it with the number the user needs to input
+        if(ttt.pegs[i] == " ")
+        {
+            out<<(i + 1);
+        }
+        else
+        {
+            out<<ttt.pegs[i];
+        }
+
+        //At 2, 5, and 8, do a new line. Otherwise, place a |
+        if((i + 1) % 3 == 0)
+        {
+            out<<"\n";
+        }
+        else
+        {
+            out<<"|";
+        }
+    }
+
+    return out;
+}
+
+std::istream& operator >> (std::istream& in, TicTacToe& ttt)
+{
+    /*
+    Get the starting player, then starts a new game
+    */
+
+   std::string start_player;
+
+   do
+   {
+        std::cout<<"\nPlease enter the starting player(X or O): ";
+        std::cin>>start_player;
+
+        if(start_player == "x")
+        {
+            start_player = "X";
+        }
+        else if(start_player == "o")
+        {
+            start_player = "O";
+        }
+        else if(start_player != "X" || start_player != "O")
+        {
+            std::cout<<"ERROR: Please enter either X or O for the starting player.\n";
+        }
+   } while(start_player != "X" && start_player != "O");
+
+   ttt.start_game(start_player);
 }
