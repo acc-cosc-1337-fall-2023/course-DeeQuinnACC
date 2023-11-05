@@ -11,7 +11,20 @@ else
 false
 */
 
+bool TicTacToe4::check_column_win()
+{
+    //std::cout<<"\n";
+    for(int i=0; i<4; i++)
+    {
+        std::string one = pegs[i], two = pegs[i+4], three = pegs[i+8], four = pegs[i+12];
+        if(one == two && two == three && three == four && one != " ")
+        {
+            return true;
+        }
+    }
 
+    return false;
+}
 
 
 /*
@@ -23,7 +36,19 @@ Win by row if
 12,13,14, 15 are equal
 */
 
+bool TicTacToe4::check_row_win()
+{
+    for(int i=0; i<16; i+=4)
+    {
+        std::string one = pegs[i], two = pegs[i+1], three = pegs[i+2], four = pegs[i+3];
+        if(one == two && two == three && three == four && one != " ")
+        {
+            return true;
+        }
+    }
 
+    return false;
+}
 
 /*
 class function check_diagonal_win
@@ -34,3 +59,19 @@ Win diagonally
 12,13,14, 15
 
 */
+
+bool TicTacToe4::check_diagonal_win()
+{
+    std::string one = pegs[0], two = pegs[5], three = pegs[10], four = pegs[15];
+    if(one == two && two == three && three == four && one != " ")
+    {
+        return true;
+    }
+    one = pegs[3], two = pegs[6], three = pegs[9], four = pegs[12];
+    if(one == two && two == three && three == four && one != " ")
+    {
+        return true;
+    }
+    
+    return false;
+}

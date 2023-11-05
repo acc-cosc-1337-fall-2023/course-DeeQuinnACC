@@ -1,6 +1,9 @@
 //cpp
 #include "tic_tac_toe.h"
 
+using std::string;
+using std::vector;
+
 bool TicTacToe::game_over()
 {
     if(check_column_win())
@@ -51,7 +54,6 @@ void TicTacToe::mark_board(int position)
     
     pegs[position - 1] = player;
     set_next_player();
-    game_over();
 }
 
 
@@ -81,56 +83,17 @@ bool TicTacToe::check_board_full()
 
 bool TicTacToe::check_row_win()
 {
-    //Go through {0, 1, 2}, {3, 4, 5}, {6, 7, 8}
-    for(int i=0; i<9; i += 3)
-    {
-        string one = pegs[i], two = pegs[i+1], three = pegs[i+2];
-        if(one == two && two == three && one != " ")
-        {
-            return true;
-        }
-    }
-    
     return false;
 }
 
 bool TicTacToe::check_column_win()
 {
-    //Go through {0, 3, 6}, {1, 4, 7}, {2, 5, 8}
-    for(int i=0; i<3; i += 1)
-    {
-        string one = pegs[i], two = pegs[i+3], three = pegs[i+6];
-        if(one == two && two == three && one != " ")
-        {
-            return true;
-        }
-    }
-    
     return false;
-
 }
 
 bool TicTacToe::check_diagonal_win()
 {
-    //No loop, as it doesn't make sense
-    //Check left-up, middle, right-down {0, 4, 8}, then right-up, middle, left-down{2, 4, 6}
-    string leftUp = pegs[0], rightUp = pegs[2], leftDown = pegs[6], rightDown = pegs[8], middle = pegs[4];
-    if(middle == " ")
-    {
-        return false;
-    }
-    else if(leftUp == middle && middle == rightDown)
-    {
-        return true;
-    }
-    else if(rightUp == middle && middle == leftDown)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return false;
 }
 
 void TicTacToe::set_winner()
@@ -145,31 +108,65 @@ void TicTacToe::set_winner()
     }
 }
 
+void TicTacToe::clear_board()
+{
+    for(int i=0; i<pegs.size(); i++)
+    {
+        pegs[i] = " ";
+    }
+}
+
 std::ostream& operator << (std::ostream& out, const TicTacToe& ttt)
 {
     out<<"\n";
 
-    for(int i=0; i<9; i++)
+    for(int i=0; i<ttt.pegs.size(); i++)
     {
         //If no one has placed a marker on a slot, fill it with the number the user needs to input
         if(ttt.pegs[i] == " ")
         {
+            //If 4x4 and a number less than 10, put a space
+            if(i + 1 <= 9 && ttt.pegs.size() == 16)
+            {
+                out<<" ";
+            }
             out<<(i + 1);
         }
         else
         {
+            //Put a space before if it is 4x4
+            if(ttt.pegs.size() == 16)
+            {
+                out<<" ";
+            }
             out<<ttt.pegs[i];
         }
 
-        //At 2, 5, and 8, do a new line. Otherwise, place a |
-        if((i + 1) % 3 == 0)
+        //for a 3x3, new lines at 2, 5, 8
+        //for a 4x4, new lines at 3, 7, 11, 15
+        if(ttt.pegs.size() == 9)
         {
-            out<<"\n";
+            if((i + 1) % (3) == 0)
+            {
+                out<<"\n";
+            }
+            else
+            {
+                out<<"|";
+            }
         }
         else
         {
-            out<<"|";
+            if((i + 1) % (4) == 0)
+            {
+                out<<"\n";
+            }
+            else
+            {
+                out<<"|";
+            }
         }
+
     }
 
     return out;
