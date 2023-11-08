@@ -8,7 +8,7 @@
 class Circle : public Shape
 {
 public:
-    void draw(){std::cout<<"Draw circle";}
+    void draw(){std::cout<<"\nDraw circle";}
 };
 
-#endif CIRCLE_H
+#endif //CIRCLE_H

@@ -3,6 +3,8 @@
 #include "bank_account.h"
 #include "checking_account.h"
 #include "savings_account.h"
+#include "circle.h"
+#include "line.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -58,3 +60,6 @@ TEST_CASE("Test SavingsAccount")
 	SavingsAccount account(100);
 	REQUIRE(account.get_balance() == 105);
 }
+
+//////////////////////////////////////////////////////////////////////
+

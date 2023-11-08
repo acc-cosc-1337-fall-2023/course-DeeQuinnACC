@@ -7,7 +7,7 @@
 
 class Line : public Shape
 {
-    void draw(){ std::cout<<"Draw Line.";}
+    void draw(){ std::cout<<"\nDraw Line.";}
 };
 
-#endif LINE_H
+#endif //LINE_H
