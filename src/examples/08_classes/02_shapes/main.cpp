@@ -12,25 +12,18 @@ iterate with auto
 */
 
 using std::vector;
+using std::unique_ptr;
+using std::make_unique;
 
 int main()
 {
-	vector<Shape *> shapes;
+	vector<unique_ptr<Shape>> shapes;
+	shapes.push_back(make_unique<Circle>());
+	shapes.push_back(make_unique<Line>());
 
-	Shape *shape = new Circle();
-	shapes.push_back(shape);
-
-	shape = new Line();
-	shapes.push_back(shape);
-
-	for (auto &shape : shapes)
+	for(auto& shape: shapes)
 	{
 		shape->draw();
-	}
-
-	for (auto &shape : shapes)
-	{
-		delete shape;
 	}
 
 	return 0;
