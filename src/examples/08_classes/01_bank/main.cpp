@@ -20,10 +20,5 @@ int main()
 {
 	srand(time(NULL)); //Make rand() truly sudo-random
 
-	vector<Customer> customers;
-	customers.push_back(Customer(1, "John Doe"));
-	customers.push_back(Customer(2, "Mary Jane"));
-	customers.push_back(Customer(3, "Brian F"));
-	customers.push_back(Customer(4, "Gerald Riv"));
-	customers.push_back(Customer(5, "Joe Mama"));
+	run_menu();
 }
