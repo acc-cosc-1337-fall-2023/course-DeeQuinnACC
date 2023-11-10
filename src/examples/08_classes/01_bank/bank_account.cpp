@@ -3,6 +3,11 @@
 
 using std::cout;
 
+int BankAccount::get_balance() const
+{
+    return balance;
+}
+
 void BankAccount::deposit(int amount) //:: = scope. modifiying the function deposit inside of BankAccount
 {
     if(amount > 0)

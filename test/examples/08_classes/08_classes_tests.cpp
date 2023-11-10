@@ -13,7 +13,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 TEST_CASE("Test BankAccount constructor and get_balance")
 {
 	BankAccount account(100);
-	BankAccount account1(0);
+	BankAccount account1();
 
 	REQUIRE(account.get_balance() == 100);
 	REQUIRE(account1.get_balance() == 0);

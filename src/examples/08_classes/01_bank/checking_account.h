@@ -11,6 +11,8 @@ public:
     //CheckingAccount(int b) : balance(b) {}
     CheckingAccount(int b) : BankAccount(b) {}
 
+    int get_balance() const { return BankAccount::get_balance(); }
+
 private:
 
 };

@@ -16,7 +16,7 @@ public:
     BankAccount() { get_balance_from_db(); }
     BankAccount(int b) : balance(b){}
     
-    virtual int get_balance() const { return balance; }
+    virtual int get_balance() const = 0;
     void deposit(int amount);
     void withdraw(int amount);
 
