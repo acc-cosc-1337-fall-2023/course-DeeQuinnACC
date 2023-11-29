@@ -9,10 +9,13 @@ class Vector
     public:
         //Contructor
         Vector(int size);
-        //Destructor
-        ~Vector();
-        //Copy constructor
+        //Copy constructor so that copying doesn't get two pointers pointing
+        //at the same data
         Vector(const Vector& v);
+        //Destructor so that we can destroy memory
+        ~Vector();
+        //Taking over the = operator to avoid memory leaks
+        Vector& operator=(const Vector& v);
     private:
         int *elements;
         int size;

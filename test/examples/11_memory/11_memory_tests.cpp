@@ -22,6 +22,12 @@ TEST_CASE("Test my_vector creation from existing Vector")
 {
 	Vector v1{3};
 	Vector v2 = v1;
+}
 
-	
+TEST_CASE("Test my_vector creation overwrite existing Vector")
+{
+	Vector v1{3};
+	Vector v2{3};
+
+	v2 = v1;
 }

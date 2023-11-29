@@ -31,6 +31,28 @@ Vector::Vector(const Vector& v1)
     }
 }
 
+Vector& Vector::operator=(const Vector& v1)
+
+{
+    int* temp = new int[v1.size];
+
+    for(auto i=0; i<v1.size; i++)
+    {
+        temp[i] = v1.elements[i];
+    }
+
+    std::cout<<"Copy assignment delete memory at "<<elements<<"\n";
+    delete[] elements;
+
+    elements = temp;
+    temp = nullptr;
+
+    std::cout<<"Copy assignment create memory at "<<elements<<"\n";
+    size = v1.size;
+
+    return *this;
+}
+
 void use_vector()
 {
     //Not recommended; you should use a stack variable...
