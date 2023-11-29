@@ -1,7 +1,6 @@
 //write code for for stack_array and display each element to screen
 #include "arrays_mem.h"
 
-
 void use_stack_array()
 {
     const auto SIZE = 3;
@@ -66,4 +65,27 @@ void display_array(int* nums, const int SIZE)
     }
 
     std::cout<<"\n";
+}
+
+void populate_time_time(int times_table[][COLS], const int ROWS)
+{
+    for(int i=0; i<ROWS; i++)
+    {
+        for(int o=0; o<COLS; o++)
+        {
+            times_table[i][o] = (i+1)*(o+1);
+        }
+    }
+}
+
+void display_time_table(int times_table[][COLS], const int ROWS)
+{
+    for(int i=0; i<ROWS; i++)
+    {
+        for(int o=0; o<COLS; o++)
+        {
+            std::cout<<std::setw(5)<<times_table[i][o];
+        }
+        std::cout<<"\n";
+    }
 }
