@@ -16,6 +16,13 @@ Vector::~Vector()
 
 void use_vector()
 {
-    Vector v(3);
+    //Not recommended; you should use a stack variable...
+    //Vector* v = new Vector(3);
+
+    //Creating stack variable
+    Vector v{3};
     std::cout<<"Exiting use_vector...\n";
+
+    //...or you will have to delete manually
+    //delete v;
 }
