@@ -2,3 +2,20 @@
 
 //
 
+Vector::Vector(int size)
+ : size{0}, capacity{size}, elements{new int[size]}
+{
+    std::cout<<"Contrustor-New memory created at "<<elements<<".\n";
+}
+
+Vector::~Vector()
+{
+    std::cout<<"Delete memory at "<<elements<<"\n";
+    delete[] elements;
+}
+
+void use_vector()
+{
+    Vector v(3);
+    std::cout<<"Exiting use_vector...\n";
+}
