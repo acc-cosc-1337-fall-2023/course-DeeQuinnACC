@@ -7,8 +7,12 @@
 class Vector
 {
     public:
+        //Contructor
         Vector(int size);
+        //Destructor
         ~Vector();
+        //Copy constructor
+        Vector(const Vector& v);
     private:
         int *elements;
         int size;

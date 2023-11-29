@@ -14,6 +14,23 @@ Vector::~Vector()
     delete[] elements;
 }
 
+/*
+    1) Copy size from v1 to v2
+    2) Copy capacity from v1 to v2
+    3) Create new memory for v2
+    4) Copy values from v1 to v2
+*/
+
+Vector::Vector(const Vector& v1)
+: size{v1.size}, capacity{v1.capacity}, elements{new int[v1.size]}
+{
+    std::cout<<"Copy constructor - created memory at "<<elements<<"\n";
+    for(auto i=0; i<v1.size; i++)
+    {
+        elements[i] = v1.elements[i];
+    }
+}
+
 void use_vector()
 {
     //Not recommended; you should use a stack variable...
